@@ -84,7 +84,7 @@ jobs:
           # устанавливаем тег latest, чтобы потом
           # на сервере и в docker-compose.yml не указывать версию
           tags: markpentus/taski_backend:latest
-    frontend_tests:
+  frontend_tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -119,7 +119,7 @@ jobs:
       - name: Login to Docker 
         uses: docker/login-action@v2
         with:
-          markpentus: ${{ secrets.DOCKER_markpentus }}
+          username: ${{ secrets.DOCKER_username }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push to DockerHub
         uses: docker/build-push-action@v4
